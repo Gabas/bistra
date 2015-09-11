@@ -1,6 +1,9 @@
 var routes = {
   'GET': {},
-  'POST': {}
+  'POST': {},
+  'PUT': {},
+  'PATCH': {},
+  'DELETE': {}
 };
 
 module.exports = {"route": route, "routes": routes, "get": get, "post": post};
@@ -36,9 +39,17 @@ function get(path, callback) {
 }
 
 function post(path, callback) {
-  routes['POST'][path] = callback
+  routes['POST'][path] = callback;
 }
 
+function put(path, callback) {
+  routes['PUT'][path] = callback;
+}
 
+function patch(path, callback) {
+  routes['PATCH'][path] = callback;
+}
 
-
+function delete2(path, callback) {
+  routes['DELETE'][path] = callback;
+}
