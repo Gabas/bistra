@@ -1,5 +1,9 @@
 Bistra - the quick HTTP framework
 
+.get(url, function (req, res) {
+  
+});
+
 This framework should:
   - use the middleware function(req, res, next) format
   - have shortcuts for GET, POST, PUT, PATCH, and DELETE 

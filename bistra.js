@@ -1,3 +1,5 @@
+var fs = require('fs');
+
 var routes = {
   'GET': {},
   'POST': {},
@@ -21,6 +23,18 @@ function route(req, res){
       res.writeHead(200, {"Content-Type": "application/JSON"});
       res.write(data);
       return res.end();
+    };
+
+    // Set req methods
+    req.download = function(filePath, callback) {
+      req.on('data', function(data) {
+        fs.writeFile(filePath, data.toString(), function(err) {
+          if(err) return err;
+        });
+      });
+      req.on('end', function() {
+        callback();
+      });
     };
     
 
