@@ -13,6 +13,11 @@ function route(req, res){
     
     // Set methodes to be used on res object
     res.send = function(data) {
+      for( var i = 0; i < 10000; i++ ) {
+        var array = [];
+        array.push(i + "dsgasdg,jansdgjkasbdgkjasbdgklajsdbglaksj");
+      }
+      // console.log(array);
       res.writeHead(200, {"Content-Type": "text/plain"});
       res.write(data);
       return res.end();
