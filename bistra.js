@@ -26,7 +26,7 @@ function route(req, res){
     };
 
     // Set req methods
-    req.download = function(filePath, callback) {
+    req.upload = function(filePath, callback) {
       req.on('data', function(data) {
         fs.writeFile(filePath, data.toString(), function(err) {
           if(err) return err;

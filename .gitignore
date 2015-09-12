@@ -2,3 +2,4 @@ node_modules
 testHttpServer.js
 object.js
 download.sample
+upload.sample

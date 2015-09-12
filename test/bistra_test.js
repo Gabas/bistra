@@ -2,6 +2,7 @@ var chai = require('chai');
 var expect = chai.expect;
 var bistra = require(__dirname + "/../bistra.js");
 var chaiHttp = require('chai-http');
+var fs = require('fs');
 
 require(__dirname + "/../testHttpServer.js");
 
@@ -11,10 +12,11 @@ describe('POST', function() {
   it('should have a function req.download that saves a file to disk', function(done) {
     var testJson = {"thisIs": "a test"};
     chai.request('localhost:3000')
-      .post('/download')
+      .post('/upload')
       .send(testJson)
       .end(function(err, res) {
-        var fileContents = fs.readFileSync('download.sample');
+        console.log("Hi from End function");
+        var fileContents = fs.readFileSync('upload.sample').toString();
         expect(fileContents).to.eql(JSON.stringify(testJson));
         done();
       });
