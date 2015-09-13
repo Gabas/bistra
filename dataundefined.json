@@ -1,6 +1,0 @@
-function (err) {
-					if (err){
-						console.log(err);
-					}
-					console.log("New file created at 2: " + fileName);
-				}
