@@ -19,9 +19,9 @@ function route(req, res){
       res.write(data);
       return res.end();
     };
-    res.json = function(data) {
-      res.writeHead(200, {"Content-Type": "application/JSON"});
-      res.write(data);
+     res.json = function(data) {
+      res.writeHead(200, {"Content-Type": "text/plain"});
+      res.write(JSON.stringify(data));
       return res.end();
     };
 
@@ -64,6 +64,6 @@ function patch(path, callback) {
   routes['PATCH'][path] = callback;
 }
 
-function delete2(path, callback) {
+function del(path, callback) {
   routes['DELETE'][path] = callback;
 }
