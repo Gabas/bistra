@@ -1,7 +1,11 @@
 var http = require('http');
-var bistra = require(__dirname + "/lib/bistra");
+var Bistra = require(__dirname + "/lib/bistra");
 var port = 3000;
+var bistra = Bistra();
+
+
 var server = http.createServer(bistra.route);
+
 
 bistra.get('/home', function(req, res){
  res.send('string');
@@ -21,3 +25,5 @@ bistra.mkapi('/api2');
 
 server.listen(port);
 console.log("Server listening to port: " + port);
+
+module.exports = require(__dirname + "/lib/bistra");
