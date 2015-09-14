@@ -1,10 +1,14 @@
 var http = require('http');
-var bistra = require(__dirname + "/lib/bistra");
+var Bistra = require(__dirname + "/lib/bistra");
+var bistra = Bistra();
 var port = 3000;
-var server = http.createServer(bistra.route);
 
 bistra.get('/home', function(req, res){
- res.send('string');
+  res.send('string');
+});
+
+bistra.get('/test', function(req, res) {
+  res.json({"JSONObject": "getsSentTo/home"});
 });
 
 bistra.post('/upload', function(req, res){
@@ -16,8 +20,6 @@ bistra.post('/upload', function(req, res){
 
 bistra.mkapi('/api');
 
-bistra.mkapi('/api2');
-
-
+var server = http.createServer(bistra.route);
 server.listen(port);
 console.log("Server listening to port: " + port);
